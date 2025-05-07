@@ -73,7 +73,7 @@ arcade\_survival/
 
 ## 🛠️ To Do / Work in Progress
 
-- ☐ Add individual volume control for `music_volume` and `effects_volume`
+- ☐ Add individual volume control for `general_volume`, `music_volume` and `effects_volume`
 - ☐ Save and load player score from `highscores.json`
 - ☐ Animated sprites for characters
 - ☐ Add new enemy types with behaviors
