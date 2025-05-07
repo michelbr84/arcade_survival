@@ -8,7 +8,7 @@
 
 ## 📖 About the Game
 
-**Arcade Survival** is a top-down 2D survival shooter built with Python and Pygame. The player must survive waves of enemies by moving, dodging, and shooting in a dynamically scaling environment. The game features an elegant retro-style interface, adjustable resolution, sound options, and a responsive UI system.
+**Arcade Survival** is a top-down 2D survival shooter built with Python and Pygame. The player must survive waves of enemies by moving, dodging, and shooting in a dynamically scaling environment. The game features a retro-inspired interface, resolution switching, basic audio controls, and a responsive UI system.
 
 ---
 
@@ -57,33 +57,32 @@ arcade\_survival/
 
 ## ✅ Features Implemented
 
-- ✅ Modular project structure
+- ✅ Modular and scalable project structure
 - ✅ Functional main menu, pause menu, and options menu
-- ✅ Player movement (WASD) and shooting
+- ✅ Player movement (WASD) and mouse-aimed shooting
 - ✅ Bullet collision with enemies
-- ✅ Enemy wave spawning and scaling
+- ✅ Enemy wave generation with difficulty scaling
 - ✅ Health bar and player damage system
-- ✅ Sound effects: shoot, kill, game over
-- ✅ Background music
-- ✅ Volume controls (global master volume)
+- ✅ Sound effects: shoot, kill, game over (using safe loader)
+- ✅ Background music with volume control
 - ✅ Resolution switching and fullscreen toggle
-- ✅ JSON structure for persistent settings and scores
-- ✅ Graceful error handling for missing assets
+- ✅ JSON support for future persistent data
+- ✅ Graceful error handling for missing or failed audio assets
 
 ---
 
 ## 🛠️ To Do / Work in Progress
 
-- ☐ Allow individual adjustment of `music_volume` and `effects_volume`
-- ☐ Implement player score saving/loading from `highscores.json`
-- ☐ Add animated sprites for player/enemies
-- ☐ Add multiple enemy types
-- ☐ Power-ups and upgrades (double shot, speed, etc.)
-- ☐ Game over screen with retry/quit options
-- ☐ Difficulty settings (easy, normal, hard)
-- ☐ Controller support (optional)
-- ☐ In-game settings menu with UI sliders
-- ☐ Local leaderboard
+- ☐ Add individual volume control for `music_volume` and `effects_volume`
+- ☐ Save and load player score from `highscores.json`
+- ☐ Animated sprites for characters
+- ☐ Add new enemy types with behaviors
+- ☐ Implement power-ups (speed, double-shot, etc.)
+- ☐ Game over and retry screen
+- ☐ Difficulty selection (easy, normal, hard)
+- ☐ Gamepad/controller support
+- ☐ In-game settings with UI sliders
+- ☐ Local leaderboard system
 
 ---
 
@@ -92,7 +91,7 @@ arcade\_survival/
 - Python 3.12+
 - Pygame 2.6+
 
-Install dependencies:
+To install dependencies:
 
 ```bash
 pip install -r requirements.txt
@@ -110,15 +109,12 @@ python main.py
 
 ## 🧠 Credits
 
-* Developed using **Pygame** and Python.
-* Art & sound assets are placeholders. Replace with your own or license-free content for production.
+* Developed using **Pygame** and **Python 3**
+* All visual and sound assets used here are placeholders — replace them before redistribution
 
 ---
 
 ## 📃 License
 
-This is a personal project under development. Not yet licensed for redistribution.
-
-```
-
----
+This project is licensed under the **MIT License** (see `LICENSE`).
+**Note:** Assets in the `assets/` folder are for educational use only and should be replaced for commercial or production use.
