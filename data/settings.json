@@ -1,0 +1,26 @@
+{
+  "audio": {
+    "master_volume": 1.0,
+    "music_volume": 0.5,
+    "effects_volume": 1.0
+  },
+  "video": {
+    "resolution_index": 0,
+    "fullscreen": false
+  },
+  "controls": {
+    "move_up": "K_w",
+    "move_down": "K_s",
+    "move_left": "K_a",
+    "move_right": "K_d",
+    "shoot": "MOUSEBUTTONLEFT",
+    "pause": "K_ESCAPE"
+  },
+  "gameplay": {
+    "show_tutorial": true,
+    "difficulty": "normal"
+  },
+  "meta": {
+    "last_saved": "2025-05-07T15:00:00"
+  }
+}

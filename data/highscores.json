@@ -1,0 +1,29 @@
+{
+  "highscores": [
+    {
+      "name": "AAA",
+      "score": 5000,
+      "date": "2025-01-01"
+    },
+    {
+      "name": "BBB",
+      "score": 3000,
+      "date": "2025-01-03"
+    },
+    {
+      "name": "CCC",
+      "score": 2000,
+      "date": "2025-01-05"
+    },
+    {
+      "name": "DDD",
+      "score": 1000,
+      "date": "2025-01-06"
+    },
+    {
+      "name": "EEE",
+      "score": 500,
+      "date": "2025-01-07"
+    }
+  ]
+}
