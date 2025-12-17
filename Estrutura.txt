@@ -1,0 +1,34 @@
+arcade\_survival/
+├── main.py
+├── config/
+│   ├── **init**.py
+│   ├── settings.py
+│   └── paths.py
+├── core/
+│   ├── **init**.py
+│   ├── game.py
+│   ├── menus.py
+│   └── utils.py
+├── entities/
+│   ├── **init**.py
+│   ├── player.py
+│   ├── bullet.py
+│   └── enemy.py
+├── assets/
+│   ├── images/
+│   │   ├── player.png
+│   │   ├── enemy.png
+│   │   └── background.jpg
+│   ├── sounds/
+│   │   ├── shoot.mp3
+│   │   ├── kill.mp3
+│   │   ├── gameover.mp3
+│   │   └── music.mp3
+│   └── fonts/
+│       └── arial.ttf
+├── data/
+│   ├── highscores.json
+│   └── settings.json
+├── requirements.txt
+├── README.md
+└── .gitignore
