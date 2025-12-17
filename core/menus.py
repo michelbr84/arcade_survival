@@ -1,13 +1,17 @@
 import pygame
 import sys
-from config.settings import WIDTH, HEIGHT, YELLOW, WHITE, screen
+from config.settings import WIDTH, HEIGHT, YELLOW, WHITE, RED, screen
 from core.utils import draw_text, button
 
 
 def show_main_menu():
+    from core.score_manager import get_highest_score
+    hs = get_highest_score()
+    
     screen.fill((0, 0, 0))
     draw_text("ARCADE SURVIVAL", WIDTH // 2, HEIGHT // 3, YELLOW, center=True)
-    draw_text("Press ENTER to Start", WIDTH // 2, HEIGHT // 2, WHITE, center=True)
+    draw_text(f"High Score: {hs}", WIDTH // 2, HEIGHT // 3 + 40, WHITE, center=True)
+    draw_text("Press ENTER to Start", WIDTH // 2, HEIGHT // 2 + 20, WHITE, center=True)
     draw_text("Press ESC to Quit", WIDTH // 2, HEIGHT // 2 + 40, WHITE, center=True)
     pygame.display.flip()
 
@@ -67,3 +71,50 @@ def show_options_menu(settings_module):
 
     set_volumes()
     return True
+
+def show_game_over_screen(score, high_score):
+    mouse = pygame.mouse.get_pos()
+    click = pygame.mouse.get_pressed()[0]
+
+    draw_text("GAME OVER", WIDTH // 2, HEIGHT // 3 - 40, RED, center=True)
+    draw_text(f"Score: {score}", WIDTH // 2, HEIGHT // 3 + 20, WHITE, center=True)
+    draw_text(f"High Score: {high_score}", WIDTH // 2, HEIGHT // 3 + 60, YELLOW, center=True)
+
+    action = None
+    if button((WIDTH // 2 - 100, HEIGHT // 2, 200, 40), "Retry", mouse, click):
+        action = "RETRY"
+    if button((WIDTH // 2 - 100, HEIGHT // 2 + 60, 200, 40), "Return to Menu", mouse, click):
+        action = "MENU"
+    if button((WIDTH // 2 - 100, HEIGHT // 2 + 120, 200, 40), "Quit", mouse, click):
+        pygame.quit()
+        sys.exit()
+    
+    return action
+
+def show_leaderboard_screen(leaderboard_data):
+    mouse = pygame.mouse.get_pos()
+    click = pygame.mouse.get_pressed()[0]
+    
+    draw_text("LEADERBOARD", WIDTH // 2, HEIGHT // 6, YELLOW, center=True)
+    
+    # Headers
+    start_y = HEIGHT // 4
+    draw_text("Rank", WIDTH // 4, start_y, RED)
+    draw_text("Name", WIDTH // 2, start_y, RED, center=True)
+    draw_text("Score", WIDTH * 3 // 4, start_y, RED)
+    
+    # Rows
+    for i, entry in enumerate(leaderboard_data):
+        y = start_y + 40 + i * 30
+        color = WHITE
+        if i == 0: color = YELLOW # Top 1
+        
+        draw_text(f"#{i+1}", WIDTH // 4, y, color)
+        draw_text(entry.get("name", "Unknown"), WIDTH // 2, y, color, center=True)
+        draw_text(str(entry.get("score", 0)), WIDTH * 3 // 4, y, color)
+
+    # Back Button
+    if button((WIDTH // 2 - 100, HEIGHT - 80, 200, 40), "Back", mouse, click):
+        return "BACK"
+    
+    return None

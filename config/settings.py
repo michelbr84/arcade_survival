@@ -8,15 +8,27 @@ master_volume = 1.0
 music_volume = 0.5
 effects_volume = 1.0
 
+# --- Difficulty Settings ---
+DIFFICULTY = {
+    "Easy": {"hp": 0.8, "speed": 0.8, "damage": 0.5, "spawn_rate": 1.5}, # Slower spawn (higher timer limit)
+    "Normal": {"hp": 1.0, "speed": 1.0, "damage": 1.0, "spawn_rate": 1.0},
+    "Hard": {"hp": 1.5, "speed": 1.2, "damage": 1.5, "spawn_rate": 0.7},
+}
+current_difficulty = "Normal"
+
 def set_volumes():
     """Set global master volume for music and sound effects."""
     try:
-        pygame.mixer.music.set_volume(master_volume)
+        # Apply master * music_volume
+        pygame.mixer.music.set_volume(master_volume * music_volume)
+        
         from config.paths import get_sound
+        # Apply master * effects_volume
+        current_effects_vol = master_volume * effects_volume
         for sound_name in ["shoot", "kill", "gameover"]:
             sound = get_sound(sound_name)
             if sound:
-                sound.set_volume(master_volume)
+                sound.set_volume(current_effects_vol)
     except Exception as e:
         print(f"[ERROR] Failed to set volume: {e}")
 

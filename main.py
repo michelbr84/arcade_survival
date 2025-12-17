@@ -10,7 +10,7 @@ init_display()
 
 # Step 2: Now import modules that rely on screen being initialized
 from config.settings import clock, FPS, set_volumes
-from config.paths import MUSIC_PATH, load_sounds
+from config.paths import MUSIC_PATH, load_sounds, load_images
 from core.game import Game
 
 def main():
@@ -23,6 +23,12 @@ def main():
         load_sounds()
     except Exception as e:
         print(f"[ERROR] Failed to load sound effects: {e}")
+
+    # Load all images
+    try:
+        load_images()
+    except Exception as e:
+        print(f"[ERROR] Failed to load images: {e}")
 
     # Load and play background music
     try:
